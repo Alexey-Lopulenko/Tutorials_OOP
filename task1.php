@@ -11,7 +11,7 @@ salary (зарплата).Создайте объект этого класса,
 Этот метод должен использовать метод setAge перед установкой нового возраста
 (если возраст не корректный - он не должен меняться).  ";
 
-require_once 'Classes/FirstClass.php';
+require_once 'Classes/Worker.php';
 
 $Ivan = new Worker();
 $Ivan->setName('Ivan');
