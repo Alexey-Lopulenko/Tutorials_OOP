@@ -44,5 +44,11 @@ class Worker
 
 
     }
+    function  __construct()
+    {
+        $this-> setName('Worker');
+        $this-> setAge(30);
+        $this-> setSalary(1500);
+    }
 
 }

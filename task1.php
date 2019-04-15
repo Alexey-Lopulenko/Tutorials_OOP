@@ -41,4 +41,10 @@ echo '<br>';
 echo '<br>Sum age:'.$sumAge;
 echo '<br>Sum salary:'.$sumSalary;
 
+$worker = new Worker();
+echo '<br><br>Information:';
+echo '<br>Name: '.$worker ->getName();
+echo '<br>Age: '.$worker ->getAge();
+echo '<br>Salary: '.$worker ->getSalary();
+
 ?>
