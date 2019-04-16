@@ -39,8 +39,9 @@ class Worker
 
     public function checkAge($age)
     {
-        if($age > 1 && $age < 100)
+        if($age > 1 && $age < 100){
             $this->setAge($age);
+        }
 
 
     }
