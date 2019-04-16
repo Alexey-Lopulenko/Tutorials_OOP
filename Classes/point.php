@@ -71,7 +71,7 @@ class Triangle extends Point
     }
 }
 
-class Rectangle
-{
-
-}
+//class Rectangle extends Point
+//{
+//
+//}
