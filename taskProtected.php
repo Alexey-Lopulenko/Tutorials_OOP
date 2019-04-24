@@ -3,18 +3,11 @@
 require_once 'Classes/point.php';
 
 
-$obTriangle = new Triangle();
-
-$SQR = $obTriangle->square($obTriangle->getPointA(),$obTriangle->getPointB(),$obTriangle->getPointC());
-//echo 'Площадь триуголиника = '.$SQR;
-
-$perimeter = $obTriangle->perimeter($obTriangle->getPointA(),$obTriangle->getPointB(),$obTriangle->getPointC());
-//echo '<br>Периметр триугольника = '.$perimeter;
-
-$Figure = new Figure();
-$a =$Figure->getSquare();
-$b = $Figure->getPerimeter();
-
-echo '<br>Square - '.$a.'<br>Perimeter - '.$b;
+$obA = new Point(1, 1);
+$obB = new Point(2,  1);
+$obC = new Point(3, 1);
 
 
+$obTriangle = new Triangle($obA, $obB, $obC);
+
+echo '<br>Периметр:'.$obTriangle->perimeter().'<br>Площадь:'.$obTriangle->square();

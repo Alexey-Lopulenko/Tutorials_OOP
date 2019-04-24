@@ -1,81 +1,196 @@
 <?php
 
-
-class Point
+ class Point
 {
-   private $pointA;
-   private $pointB;
-   private $pointC;
-   private $pointD;
+    private $X;
+    private $Y;
 
-
-    public function setPointA($pointA)
+    public function __construct($x, $y)
     {
-        $this->pointA = $pointA;
+       $this->X = $x;
+       $this->Y = $y;
     }
-    public function getPointA()
+
+    /**
+     * @return float
+     */
+    public function getX()
+    {
+        return $this->X;
+    }
+
+
+    /**
+     * @return float
+     */
+    public function getY()
+    {
+        return $this->Y;
+    }
+}
+
+
+
+ class Triangle
+{
+    private $sideA;
+    private $sideB;
+    private $sideC;
+
+    private $pointA;
+    private $pointB;
+    private $pointC;
+
+     /**
+      * validation of the object
+      * @param object
+      * @param object
+      * @param object
+      */
+   function __construct($obA, $obB, $obC)
+   {
+
+        $this->pointA = $obA;
+        $this->pointB = $obB;
+        $this->pointC = $obC;
+
+
+       /**
+        * check whether the figure is a triangle
+        * if the figure is a triangle - field assignment (side)
+        */
+      $this->obValidity($obA, $obB, $obC);
+
+   }
+
+     /**
+      * @param $pointA
+      * @param $pointB
+      * @param $pointC
+      * @return bool
+      */
+   private function obValidity($pointA, $pointB, $pointC)
+   {
+       $aX = $pointA->getX();
+       $aY = $pointA->getY();
+       $bX = $pointB->getX();
+       $bY = $pointB->getY();
+       $cX = $pointC->getX();
+       $cY = $pointC->getY();
+
+       /**
+        *side length determination
+        */
+       $AB = sqrt((($bX - $aX)**2) + (($bY - $aY)**2));
+       $AC = sqrt((($cX - $aX)**2) + (($cY - $aY)**2));
+       $BC = sqrt((($cX - $bX)**2) + (($cY - $bY)**2));
+
+
+           if ($AB < $BC + $AC && $BC < $AB + $AC && $AC < $AB + $BC) {
+               $this->sideA = $AB;
+               $this->sideB = $BC;
+               $this->sideC = $AC;
+
+                echo '<br>Фигура триугольник!';
+           }
+           else {
+               try{
+                   throw new Exception('<br>Внимание! Данная фигура не триугольник!');
+               }
+               catch (Exception $e){
+                   echo $e->getMessage();
+               }
+           }
+
+   }
+ /**
+       * @return float
+       */
+    private function getPointA()
     {
         return $this->pointA;
     }
 
-    public function setPointB($pointB)
-    {
-        $this->pointB = $pointB;
-    }
-    public function getPointB()
+      /**
+       * @return float
+       */
+    private function getPointB()
     {
         return $this->pointB;
     }
 
-    public function setPointC($pointC)
-    {
-        $this->pointC = $pointC;
-    }
-    public function getPointC()
-    {
-        return $this->pointC;
-    }
+      /**
+       * @return float
+       */
+    private function getPointC()
+   {
+       return $this->pointC;
+   }
 
 
-    public function setPointD($pointD)
-    {
-        $this->pointD = $pointD;
-    }
-    public function getPointD()
-    {
-        return $this->pointD;
-    }
+     /**
+      * @return float
+      */
+
+     private function getSideA()
+   {
+        return $this->sideA;
+   }
+
+     /**
+      * @return float
+      */
+     private function getSideB()
+     {
+         return $this->sideB;
+     }
+
+     /**
+      * @return float
+      */
+     private function getSideC()
+     {
+         return $this->sideC;
+     }
+
+
+     /**
+      * perimeter calculation
+      * @return float
+      */
+   public function  perimeter()
+   {
+       $A = $this->getSideA();
+       $B = $this->getSideB();
+       $C = $this->getSideC();
+
+       $perimeter = $A+$B+$C;
+       return $perimeter;
+
+   }
+
+     /**
+      * square calculation
+      * @return float
+      */
+   public  function square()
+   {
+       $A = $this->getSideA();
+       $B = $this->getSideB();
+       $C = $this->getSideC();
+
+       $perimeter = $this->perimeter();
+       $pp = $perimeter /2;
+       $square = sqrt($pp * ($pp - $A) * ($pp - $C) * ($pp - $B));
+       return $square;
+
+   }
+
 }
 
 
 
-class Triangle extends Point
-{
-    function __construct()
-    {
-        $this->setPointA([-1,4]);
-        $this->setPointB([-1,2]);
-        $this->setPointC([-7,3]);
-    }
-
-    public function square($a , $b, $c)
-    {
-        $sqaTriangle = 0.5 * (((($a[0] - $c[0]) * ($b[1] - $c[1])) - (($b[0]- $c[0]) * ($a[1]-$c[1]))));
-        return $sqaTriangle;
-    }
-
-    public function perimeter($a,$b,$c)
-    {
-        $AB = sqrt((($b[0] - $a[0])**2) + (($b[1] - $a[1])**2));
-        $BC = sqrt((($c[0] - $b[0])**2) + (($c[1] - $b[1])**2));
-        $AC = sqrt((($c[0] - $a[0])**2) + (($c[1] - $a[1])**2));
-
-        $perimeter= $AB+$BC+$AC;
-        return $perimeter;
-    }
-}
-
-
+/*
 class Figure extends Point
 {
     private $square;
@@ -148,3 +263,4 @@ class Figure extends Point
 
     }
 }
+*/
