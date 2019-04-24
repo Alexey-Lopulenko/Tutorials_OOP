@@ -67,7 +67,7 @@
       * @param $pointA
       * @param $pointB
       * @param $pointC
-      * @return bool
+      *
       */
    private function obValidity($pointA, $pointB, $pointC)
    {
