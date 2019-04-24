@@ -2,13 +2,13 @@
 
  class Point
 {
-    private $X;
-    private $Y;
+    private $x;
+    private $y;
 
     public function __construct($x, $y)
     {
-       $this->X = $x;
-       $this->Y = $y;
+       $this->x = $x;
+       $this->y = $y;
     }
 
     /**
@@ -16,7 +16,7 @@
      */
     public function getX()
     {
-        return $this->X;
+        return $this->x;
     }
 
 
@@ -25,7 +25,7 @@
      */
     public function getY()
     {
-        return $this->Y;
+        return $this->y;
     }
 }
 
