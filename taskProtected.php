@@ -3,7 +3,7 @@
 require_once 'Classes/point.php';
 
 
-$obA = new Point(1, 1);
+$obA = new Point(1, 4);
 $obB = new Point(2,  1);
 $obC = new Point(3, 1);
 
